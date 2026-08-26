@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Você me desculpa?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div>
+            <h1 class="header_text">Você me desculpa?</h1>
+        </div>
+        
+        <div class="gif_container">
+            <img src="gato.gif" alt="Cute animated illustration">
+        </div>
+
+        <div class="buttons">
+            <!-- Botão Sim: Redireciona para outra página -->
+            <button class="btn" id="yesButton" onclick="nextPage()">Sim</button>
+            
+            <!-- Botão Não: Foge quando o mouse passa por cima -->
+            <button class="btn" id="noButton" onmouseover="moveButton()">Não</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para o botão SIM
+        function nextPage() {
+            window.location.href = "yes.html"; // Cria uma página chamada yes.html para a resposta positiva
+        }
+
+        // Função para o botão NÃO (fazer ele fugir)
+        function moveButton() {
+            // Calcula posições aleatórias dentro da largura e altura da tela visível
+            var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
+            var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
+            
+            // Aplica as novas coordenadas ao estilo do botão
+            document.getElementById('noButton').style.position = 'absolute';
+            document.getElementById('noButton').style.left = x + 'px';
+            document.getElementById('noButton').style.top = y + 'px';
+        }
+    </script>
+
+</body>
+</html>
